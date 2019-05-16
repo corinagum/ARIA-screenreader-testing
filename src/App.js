@@ -7,7 +7,7 @@ export default class App extends React.Component {
 
     this.state = {
       numbers: [1],
-      time: Date.now()
+      time: 0
     };
   }
 
@@ -34,9 +34,9 @@ export default class App extends React.Component {
           })
           }
           <li
-            aria-atomic="true"
-            aria-live="polite"
-            aria-relevant="text"
+            // aria-atomic="true"
+            // aria-live="polite"
+            // aria-relevant="text"
           >{ this.state.time }</li>
         </ul>
       </main>
