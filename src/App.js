@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      numbers: [1],
+      time: Date.now()
+    };
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.setState({ time: Date.now() }), 2222);
+    this.nextNum = setInterval(() => this.setState({ numbers: [...this.state.numbers, Math.floor(Math.random() * Math.floor(100))]}), 4007);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+    clearInterval(this.nextNum);
+  }
+  render() {
+    return (
+      <main>
+        <ul
+          aria-atomic="false"
+          aria-live="polite"
+          aria-relevant="additions text"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          { this.state.numbers.map( listValue => {
+            return <li>{ listValue }</li>
+          })
+          }
+          <li
+            aria-atomic="true"
+            aria-live="polite"
+            aria-relevant="text"
+          >{ this.state.time }</li>
+        </ul>
+      </main>
+    );
+  }
 }
-
-export default App;
