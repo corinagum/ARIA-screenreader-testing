@@ -24,6 +24,10 @@ export default class App extends React.Component {
   render() {
     return (
       <main>
+        <div>
+          <h2>What on earth is this project for?</h2>
+          <p>This is just a simple test of `aria-live` features across browsers. For more information see the <a href="https://github.com/microsoft/BotFramework-WebChat/issues/1876">Web Chat a11y issue</a>.</p>
+        </div>
         <ul
           aria-atomic="false"
           aria-live="polite"
