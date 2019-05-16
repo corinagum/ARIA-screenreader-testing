@@ -12,8 +12,9 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.setState({ time: Date.now() }), 2222);
-    this.nextNum = setInterval(() => this.setState({ numbers: [...this.state.numbers, Math.floor(Math.random() * Math.floor(100))]}), 4007);
+    const now = Date.now();
+    this.interval = setInterval(() => this.setState({ time: Date.now() - now }), 6007);
+    this.nextNum = setInterval(() => this.setState({ numbers: [...this.state.numbers, Math.floor(Math.random() * Math.floor(100))]}), 14007);
   }
 
   componentWillUnmount() {
